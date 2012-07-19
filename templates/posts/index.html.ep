@@ -1,0 +1,30 @@
+% layout 'default';
+
+% if ( @{ $posts } > 0 ) {
+%   foreach my $post ( @{ $posts } ) {
+%   next unless defined $post;
+        <article class="post">
+            <h2 class="title">
+                <a href="<%= url_for('/posts/' . $post->{post_id} ) %>">
+                    <%== $post->{title} %>
+                </a>
+            </h2>
+        
+            <div class="post_meta">
+                Posted on <time pubdate><%= $post->{publish_date} %></time>
+                by <a class="author" href=""><%= $post->{author_name} %></a>
+            </div>
+        
+            <%== $post->{content} %>
+        </article>
+%   }
+% }
+% else {
+    <article class="post">
+        <h2>Ooooooopsss!!!</h2>
+
+        <p>
+            Opa, o post que você pediu não foi encontrado.
+        </p>
+    </article>
+% }

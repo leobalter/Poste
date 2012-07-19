@@ -1,0 +1,5 @@
+<div id="navigation">
+    <ul>
+        <li><a href="<%= url_for('/') %>">Home</a></li>
+    </ul>
+</div>

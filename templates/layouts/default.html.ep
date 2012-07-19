@@ -1,5 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head><title><%= title %></title></head>
-  <body><%= content %></body>
-</html>
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/style.css" />
+        <title>Poste</title>
+    </head> 
+    <body> 
+        <div id="header"> 
+            <a href="/"> 
+                <h1>Poste</h1> 
+                <h2>O blog que dá a luz por cima</h2> 
+            </a>
+        </div>
+
+        <%= include 'navigation' %>
+        
+        <div id="content">
+            <%= content %>
+        </div> 
+        
+        <%= include 'footer' %>
+    </body> 
+</html> 
