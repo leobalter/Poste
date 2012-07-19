@@ -1,18 +1,30 @@
 package Poste;
 use Mojo::Base 'Mojolicious';
 
+use Poste::Model;
+use Poste::Loader;
+
 # This method will run once at server start
 sub startup {
-  my $self = shift;
+    my $self = shift;
 
-  # Documentation browser under "/perldoc"
-  $self->plugin('PODRenderer');
+    # Routes Namespace
+    $self->routes->namespace('Poste::Controller');
 
-  # Router
-  my $r = $self->routes;
+    # Documentation browser under "/perldoc"
+    $self->plugin('PODRenderer');
+    
+    $self->helper(
+        model => sub {
+            my $dsn = 'dbi:SQLite:' . $self->app->home . '/var/poste.db';
+            
+            return Poste::Model::instance($dsn);
+        }
+    );
 
-  # Normal route to controller
-  $r->get('/')->to('example#welcome');
+    # Loading Modules
+    my @core_modules = qw{ Root Posts };
+    Poste::Loader::load( $self, @core_modules );
 }
 
-1;
+42;
