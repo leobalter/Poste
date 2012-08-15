@@ -18,6 +18,9 @@
             <%== $post->{content} %>
         </article>
 %   }
+
+    <%= include 'paginator' %>
+    
 % }
 % else {
     <article class="post">

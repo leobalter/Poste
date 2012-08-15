@@ -3,3 +3,4 @@ var
 docs
 .htaccess
 .project
+.DS_Store

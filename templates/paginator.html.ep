@@ -1,0 +1,55 @@
+% if ( $paginator->last > 1 ) {
+    <div id="paginator">
+%       if ( $paginator->curr != $paginator->first ) {
+%            if ( $paginator->last >= $paginator->frame_size ) {
+                <a
+                    class="outer"
+                    href="<%= $paginator->base_url . $paginator->first %>"
+                >
+                    First
+                </a>
+%            }
+            <a
+                class="outer"
+                href="<%= $paginator->base_url . $paginator->prev %>"
+            >
+                Prev
+            </a>
+%       }
+%       if ( $paginator->frame_size > 0 ) {
+%           my $i = $paginator->begin;
+%           while ( $i <= $paginator->end ) {
+%               if ( $i != $paginator->curr ) {
+                    <a
+                        class="inner"
+                        href="<%= $paginator->base_url . $i %>"
+                    >
+                        <%= $i %>
+                    </a>
+%               }
+%               else {
+                    <span class="current">
+                        [ <%= $i %> ]
+                    </span>
+%               }
+%               $i++;
+%           }
+%       }
+%       if ( $paginator->curr != $paginator->last ) {
+            <a
+                class="outer"
+                href="<%= $paginator->base_url . $paginator->next %>"
+            >
+                Next
+            </a>
+%           if ( $paginator->last >= $paginator->frame_size ) {
+                <a
+                    class="outer"
+                    href="<%= $paginator->base_url . $paginator->last %>"
+                >
+                    Last
+                </a>
+%           }
+%       }
+    </div>
+% }

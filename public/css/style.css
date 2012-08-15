@@ -126,3 +126,27 @@ pre {
 div.post {
     margin-bottom: 60px;
 }
+
+/************************** Paginator ***************************************/
+div#paginator {
+    text-align: center;
+}
+
+#paginator a {
+    text-decoration: none;
+}
+
+.outer, .inner, .current {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 7px;
+}
+
+.outer, .inner {
+    color: 47a;
+}
+
+.current {
+    color: black;
+    font-weight: bolder;
+}
